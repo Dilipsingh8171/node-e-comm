@@ -51,5 +51,6 @@ router.put('/editprofile/:userId', contollers.User_Edit_ProFile)
 router.get('/searchuser', contollers.Get_User_Search)
 router.get('/userdetails/:userId', contollers.Get_user_Details)
 router.get('/find_sub_category', contollers.Find_Sub_Category)
+router.get('/getsubcategory', contollers.Find_All_Subcategory)
 
 module.exports = router

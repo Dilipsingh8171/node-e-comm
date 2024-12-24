@@ -349,6 +349,23 @@ const Find_Sub_Category = async (req, res) => {
   }
 }
 
+const Find_All_Subcategory = async (req, res) => {
+  try {
+    const getdata = await subcategoryModel.find({}).populate('categoryId')
+
+    res.status(200).json({
+      result: 'true',
+      message: 'get all category',
+      data: getdata
+    })
+  } catch (error) {
+    return res.status(400).json({
+      result: 'false',
+      error: error.message
+    })
+  }
+}
+
 module.exports = {
   User_Register,
   Login_User,
@@ -358,5 +375,6 @@ module.exports = {
   Get_User_Search,
   Add_Sub_Category,
   Add_Category,
-  Find_Sub_Category
+  Find_Sub_Category,
+  Find_All_Subcategory
 }
