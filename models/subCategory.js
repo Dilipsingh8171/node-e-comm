@@ -9,7 +9,7 @@ const subcategorySchema = new mongoose.Schema({
     type: Number
   },
   subcategory_status: {
-    type: String,
+    type: Number,
     required: true,
     default: 0
   },

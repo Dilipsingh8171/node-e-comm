@@ -31,26 +31,40 @@ const upload = multer({
   }
 })
 
-const contollers = require('../controllers/controller')
+const contollers = require('../controllers/user_controller')
 // post api
-router.post('/registeruser', contollers.User_Register)
-router.post('/loginuser', contollers.Login_User)
-router.post('/forgotpassword/:userId', contollers.User_Forget_password)
-// router.post('/addproduct', upload.single('image'), contollers.ADD_PRODUCT)
+router.post('/register_user', contollers.User_Register)
+router.post('/login_user', contollers.Login_User)
+router.post('/forgot_password/:userId', contollers.User_Forget_password)
 router.post('/addcategory', contollers.Add_Category)
-router.post(
-  '/addsubcategory',
-  upload.single('image'),
-  contollers.Add_Sub_Category
-)
+router.post('/create_otp', contollers.Create_Otp)
+router.post('/verify_otp', contollers.Verify_Otp)
+router.post('/resend_otp', contollers.Resend_Otp)
+router.post('/send_mailer', contollers.Send_Mail_Users)
+router.post('/send_otp_gmail', contollers.Send_Otp_Gmail)
+router.post('/user_mobile_otp', contollers.User_Mobile_Otp)
+
+// router.post(
+//   '/addsubcategory',
+//   upload.single('image'),
+//   contollers.Add_Sub_Category
+// )
 
 //put api
-router.put('/editprofile/:userId', contollers.User_Edit_ProFile)
+
+router.put('/edit_profile/:userId', contollers.User_Edit_ProFile)
+router.put('/update_category', contollers.Update_Category)
+router.put('/update_subcategory', contollers.Update_Subcategory)
+router.put('/update_subcategory_status', contollers.Update_Subcategory_Status)
 
 // get api
-router.get('/searchuser', contollers.Get_User_Search)
+router.get('/search_user', contollers.Get_User_Search)
 router.get('/userdetails/:userId', contollers.Get_user_Details)
 router.get('/find_sub_category', contollers.Find_Sub_Category)
-router.get('/getsubcategory', contollers.Find_All_Subcategory)
+router.get('/get_subcategory', contollers.Find_All_Subcategory)
+
+//delete api
+router.delete('/delete_category', contollers.Delete_Category)
+router.delete('/delete_subcategory', contollers.Delete_Subcategory)
 
 module.exports = router
